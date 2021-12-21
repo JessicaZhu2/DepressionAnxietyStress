@@ -120,4 +120,60 @@ Again, Emotional Stability score goes down the fastest the more stressed you are
 
 ## EDA: DASS Scores and Demographics
 
+### DASS Score by Gender 
 
+![Alt text](./Graphs/gender_dass.png?raw=true "Title")
+
+Male has the lowest DASS Scores
+Other gender category has the highest DASS scores
+
+
+### DASS Score by Orientation
+
+![Alt text](./Graphs/orientation_dass.png?raw=true "Title")
+
+Heterosexual have the lowest DASS scores
+Bisexual orientation group has the highest DASS scores. Hetersexual orientation group is the lowest and all the other sexual orientation group are also relatively higher compared to hetersexual.
+
+### DASS Score by Age Group
+
+![Alt text](./Graphs/agegroup_dass.png?raw=true "Title")
+
+There seems to be a trend with the DASS scores for the age group. The older the age groups, the lower the DASS scores are
+
+We can see that the below 18 age group has the highest DASS scores compared to the older age group of 35 and above having the lowest score
+
+
+### DASS Score by Race
+
+![Alt text](./Graphs/race_dass.png?raw=true "Title")
+
+Some race also have lower Dass scores average such as Black, Asian, and white
+
+Other race like Native American and Arab have the higher DASS score average
+
+### DASS Score by Married
+
+![Alt text](./Graphs/married_dass.png?raw=true "Title")
+This graph shows that never married people have the highest DASS score average, whereas currently married people have the lowest DASS score
+
+But the DAS increases if something happened, and they are no longer together
+
+
+### DASS Score by Education Completed
+
+![Alt text](./Graphs/education_dass_scores.png?raw=true "Title")
+This graph shows that the higher the education you have, the lower your DASS score are.
+
+However, there seems to be a cap after completing university (undergraduate) degree.
+This is interesting because generally acknowledged that the more highly educated someone is, the more money they make.
+There have been past studies that have found that happiness plateaus once a person earns $75,000 per year. 
+
+
+### DASS Score by Religion
+
+![Alt text](./Graphs/religion_dass.png?raw=true "Title")
+
+Some religion have high Dass scores average such as Christian (Morman) 
+
+Other religion like Buddhist and Christian (Protestant) have the lowest DASS scores
