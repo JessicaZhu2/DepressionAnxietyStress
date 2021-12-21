@@ -8,17 +8,13 @@ import org.apache.spark.sql.functions.monotonically_increasing_id
 import org.apache.spark.sql.DataFrame
 import spark.implicits._
 
-// COMMAND ----------
-
 // File location and type
 val file_location = "/autumn_2021/jzhu2/project/data.csv"
 
 // CSV options
 val delimiter = "\t"
-
 val dataDF = spark.read.option("inferSchema", "true").option("header", "true").option("sep", delimiter).csv(file_location)
 
-// COMMAND ----------
 
 // Save as parquet file 
 //dataDF.write.parquet("dbfs:/autumn_2021/jzhu2/project/data1.parquet")
@@ -29,21 +25,17 @@ val dataDF = spark.read.option("inferSchema", "true").option("header", "true").o
 val data = spark.read.parquet("dbfs:/autumn_2021/jzhu2/project/data1.parquet")
 
 
-// COMMAND ----------
 
-// ------------------------------------------------ DATA CLEANING : Extact interested columns  -----------------------------------------------------------------------------------------------------
+// DATA CLEANING : Extact interested columns 
 val tipiCols = data.columns.filter(_.startsWith("TIPI")).toList
 val dassQuestionCols = data.columns.filter(_.startsWith("Q")).toList
 var basicInfo = List("education", "gender", "engnat", "age", "hand", "religion", "orientation", "race", "married", "familysize", "major", "country", "source", "introelapse", "testelapse", "surveyelapse", "urban", "uniquenetworklocation", "screensize", "voted")
 
-
-
 val selectedCols = tipiCols ::: dassQuestionCols ::: basicInfo
 val df = data.select(selectedCols.map(data(_)) : _*)
 
-// COMMAND ----------
 
-// ------------------------------------------------ DATA CLEANING : CALCULATE PERSONALITY COLUMNS  -----------------------------------------------------------------------------------------------------
+// DATA CLEANING : CALCULATE PERSONALITY COLUMNS
 /*
 The Ten Item Personality Inventory is a test in order to assess 5 personality traits of participants:  
 1. Extraversion  
@@ -97,9 +89,8 @@ var personality_DF = reverseTipi.withColumn("Extraversion", extraversion)
                                 .drop(tipicols : _*)
 
 
-// COMMAND ----------
 
-// ------------------------------------------------ COPIED FROM VICTOR'S NOTEBOOK - DASS Scores -----------------------------------------------------------------------------------------------------
+// COPIED FROM VICTOR'S NOTEBOOK - DASS Scores
 
 // Calculate DASS scores A = Score, I = Position of question in survey, E = Miliseconds took to answer the question
 val depQuestionSet = List("Q3", "Q5", "Q10", "Q13", "Q16", "Q17", "Q21", "Q24", "Q26", "Q31", "Q34", "Q37", "Q38", "Q42").map(_ + "A")
@@ -112,9 +103,8 @@ val mapCategoryToQSet = Map(
   "stress" -> strQuestionSet
 )
 
-// COMMAND ----------
 
-// ------------------------------------------------ COPIED FROM VICTOR'S NOTEBOOK - DASS Scores -----------------------------------------------------------------------------------------------------
+// COPIED FROM VICTOR'S NOTEBOOK - DASS Scores
 
 var initialData = personality_DF
 
@@ -169,7 +159,6 @@ normalizedDataset = normalizedDataset.withColumn("depression_severity", calculat
 normalizedDataset = normalizedDataset.withColumn("anxiety_severity", calculateAnxietyCategory(col("anxiety_score")))
 normalizedDataset = normalizedDataset.withColumn("stress_severity", calculateStressCategory(col("stress_score")))
 
-// COMMAND ----------
 
 // DBTITLE 1,ML Model
 import org.apache.spark.ml.feature._
@@ -238,19 +227,16 @@ val nominalFeatures= attrs.getMetadataArray("nominal").map(f)
 val numericFeatures = attrs.getMetadataArray("numeric").map(f)
 val features = (numericFeatures ++ nominalFeatures).sortBy(_._1)
 
+// END of Copying from Victor's notebook
 
-// COMMAND ----------
 
-// ------------------------------------------------ DATA CLEANING : DROP QUESTIONS COLUMNS FROM DATAFRAME -----------------------------------------------------------------------------------------------------
+//  DATA CLEANING : DROP QUESTIONS COLUMNS FROM DATAFRAME
 val questionCols = normalizedDataset.columns.filter(_.startsWith("Q")).toList
-
 var personality_DASS_DF = normalizedDataset.drop(questionCols : _*)
 personality_DASS_DF.printSchema()
 
 
-// COMMAND ----------
-
-// ---------------------------------------------------------------------------- DATA CLEANING SECTION : MAPPING DEMOGRAPHIC NUMERICAL ID TO ACTUAL VALUE ------------------------------------------------------------------
+// DATA CLEANING SECTION : MAPPING DEMOGRAPHIC NUMERICAL ID TO ACTUAL VALUE
 
 // data transformation function to join the mapping df to the main df
 def join_Demographics(main_col: String, other_df: DataFrame, other_col: String)(main_df: DataFrame): DataFrame = {
@@ -306,9 +292,8 @@ val mainDF = personality_DASS_DF.transform(join_Demographics("education", educat
 mainDF.cache()
 mainDF.show(10)
 
-// COMMAND ----------
 
-// ---------------------------------------------------------------------------- DATA VISUALIZATION SECTION : HELPER FUNCTION FOR DATA VISUALIZATION ----------------------------------------------------------------
+// DATA VISUALIZATION SECTION : HELPER FUNCTION FOR DATA VISUALIZATION 
 
 def orderDF_DASSavg(mainDF: DataFrame, main_col: String, order: Array[String]) = {
   var DASS_avg_group_col = mainDF.groupBy(main_col).avg()
@@ -338,9 +323,8 @@ val calculateAgeCategory = udf((s: Integer) => {
  category  
 })
 
-// COMMAND ----------
 
-// ----------------------------------------------------------------------------- VISUALIZATION SECTION : DISTRIBUTION OF DASS SCORES --------------------------------------------------------------------------
+// VISUALIZATION SECTION : DISTRIBUTION OF DASS SCORES
 
 val order = Array("Normal", "Mild", "Moderate", "Severe", "Extremely Severe")
 var dep_dist = orderDF_DASScount(mainDF, "depression_severity", order)
@@ -349,9 +333,8 @@ var stress_dist = orderDF_DASScount(mainDF, "stress_severity", order)
 
 display(dep_dist)
 
-// COMMAND ----------
 
-// ---------------------------------------------------------------------------- VISUALIZATION SECTION : Depression vs Personailty Grouped Bar/Line Charts -----------------------------------------------------------------
+// VISUALIZATION SECTION : Depression vs Personailty Grouped Bar/Line Charts
 
 val order = Array("Normal", "Mild", "Moderate", "Severe", "Extremely Severe")
 var dep_DF = orderDF_DASSavg(mainDF, "depression_severity", order)
@@ -364,61 +347,47 @@ stress_DF.cache()
 
 display(stress_DF)
 
-// COMMAND ----------
-
-// ----------------------------------------------------------------------------- VISUALIZATION SECTION : Gender and DASS scores chart --------------------------------------------------------------------------
+// VISUALIZATION SECTION : Gender and DASS scores chart
 
 val order = Array("Male", "Female", "Other")
 var genderDf = orderDF_DASSavg(mainDF, "gender_type", order)
 display(genderDf)
 
-// COMMAND ----------
 
-// ----------------------------------------------------------------------------- VISUALIZATION SECTION : English Native Language and DASS scores chart --------------------------------------------------------------------------
+// VISUALIZATION SECTION : English Native Language and DASS scores chart
 
 val order =Array("Yes", "No")
 var engnatDF = orderDF_DASSavg(mainDF, "engnat_type", order)
 display(engnatDF)
 
-// COMMAND ----------
-
-// ----------------------------------------------------------------------------- VISUALIZATION SECTION : Orientation and DASS scores chart --------------------------------------------------------------------------
+// VISUALIZATION SECTION : Orientation and DASS scores chart
 
 val order =Array("Heterosexual", "Bisexual", "Homosexual", "Asexual", "Other")
 var orientationDF = orderDF_DASSavg(mainDF, "orientation_type", order)
 display(orientationDF)
 
-// COMMAND ----------
 
-// ----------------------------------------------------------------------------- VISUALIZATION SECTION : RELIGION and DASS scores chart --------------------------------------------------------------------------
+// VISUALIZATION SECTION : RELIGION and DASS scores chart
 
 val order =Array("Agnostic","Atheist","Buddhist","Christian (Catholic)","Christian (Mormon)","Christian (Protestant)","Christian (Other)","Hindu","Jewish","Muslim","Sikh","Other")
 var religionDF = orderDF_DASSavg(mainDF, "religion_type", order)
 display(religionDF)
 
-// COMMAND ----------
 
-
-
-// COMMAND ----------
-
-// ----------------------------------------------------------------------------- VISUALIZATION SECTION : Race and DASS scores chart --------------------------------------------------------------------------
+// VISUALIZATION SECTION : Race and DASS scores chart
 
 val order =Array("Asian", "Arab", "Black", "Indigenous Australian", "Native American", "White", "Other")
 var raceDF = orderDF_DASSavg(mainDF, "race_type", order)
 display(raceDF)
 
-// COMMAND ----------
-
-// ----------------------------------------------------------------------------- VISUALIZATION SECTION : Married and DASS scores chart --------------------------------------------------------------------------
+// VISUALIZATION SECTION : Married and DASS scores chart
 
 val order = Array("Never married", "Currently married", "Previously married")
 var marriedDF = orderDF_DASSavg(mainDF, "married_type", order)
 display(marriedDF)
 
-// COMMAND ----------
 
-// ----------------------------------------------------------------------------- VISUALIZATION SECTION : Age group and DASS scores chart --------------------------------------------------------------------------
+// VISUALIZATION SECTION : Age group and DASS scores chart
 var mainDF_withAgeGroup = mainDF.withColumn("age_group", calculateAgeCategory(col("age")))
 
 val order = Array("Below 18", "18-24", "25-34", "35 and above")
@@ -426,10 +395,7 @@ var ageDF = orderDF_DASSavg(mainDF_withAgeGroup, "age_group", order)
 display(ageDF)
 
 
-
-// COMMAND ----------
-
-// ----------------------------------------------------------------------------- VISUALIZATION SECTION : Education and DASS scores chart --------------------------------------------------------------------------
+// VISUALIZATION SECTION : Education and DASS scores chart
 
 val order = Array(null, "< High school", "High school", "University", "Graduate")
 var educationDF = orderDF_DASSavg(mainDF, "education_type", order)
