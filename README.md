@@ -1,30 +1,31 @@
 # Exploratary Data Analysis on Depression Anxiety Stress
 Final Project for Big Data Class at University of Washington
 
-- [Exploratary Data Analysis on Depression Anxiety Stress](#exploratary-data-analysis-on-depression-anxiety-stress)
-  * [Data Introduction](#data-introduction)
-  * [Objective of Project](#objective-of-project)
+- [Data Introduction](#data-introduction)
+- [Objective of Project](#objective-of-project)
+- [Defining Data](#defining-data)
   * [Defining DASS Scores](#defining-dass-scores)
   * [Defining Personality Scores](#defining-personality-scores)
   * [Defining Demographics](#defining-demographics)
-  * [EDA: DASS Severity Distribution](#eda--dass-severity-distribution)
-    + [Distribution of Depression Severity](#distribution-of-depression-severity)
-    + [Distribution of Anxiety Severity](#distribution-of-anxiety-severity)
-    + [Distribution of Stress Severity](#distribution-of-stress-severity)
-  * [EDA: DASS Severity and Personality Trait Distribution](#eda--dass-severity-and-personality-trait-distribution)
-    + [Depression Severity and Personality Traits](#depression-severity-and-personality-traits)
-    + [Anxiety Severity and Personality Traits](#anxiety-severity-and-personality-traits)
-    + [Stress Severity and Personality Traits](#stress-severity-and-personality-traits)
-  * [EDA: DASS Scores and Demographics](#eda--dass-scores-and-demographics)
-    + [DASS Score by Gender](#dass-score-by-gender)
-    + [DASS Score by Orientation](#dass-score-by-orientation)
-    + [DASS Score by Age Group](#dass-score-by-age-group)
-    + [DASS Score by Race](#dass-score-by-race)
-    + [DASS Score by Married](#dass-score-by-married)
-    + [DASS Score by Education Completed](#dass-score-by-education-completed)
-    + [DASS Score by Religion](#dass-score-by-religion)
+- [EDA: DASS Severity Distribution](#eda--dass-severity-distribution)
+  * [Distribution of Depression Severity](#distribution-of-depression-severity)
+  * [Distribution of Anxiety Severity](#distribution-of-anxiety-severity)
+  * [Distribution of Stress Severity](#distribution-of-stress-severity)
+- [EDA: DASS Severity and Personality Trait Distribution](#eda--dass-severity-and-personality-trait-distribution)
+  * [Depression Severity and Personality Traits](#depression-severity-and-personality-traits)
+  * [Anxiety Severity and Personality Traits](#anxiety-severity-and-personality-traits)
+  * [Stress Severity and Personality Traits](#stress-severity-and-personality-traits)
+- [EDA: DASS Scores and Demographics](#eda--dass-scores-and-demographics)
+  * [DASS Score by Gender](#dass-score-by-gender)
+  * [DASS Score by Orientation](#dass-score-by-orientation)
+  * [DASS Score by Age Group](#dass-score-by-age-group)
+  * [DASS Score by Race](#dass-score-by-race)
+  * [DASS Score by Married](#dass-score-by-married)
+  * [DASS Score by Education Completed](#dass-score-by-education-completed)
+  * [DASS Score by Religion](#dass-score-by-religion)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## Data Introduction
 
@@ -42,7 +43,8 @@ Exploration of the data to see if there are any particular personality trait or 
 
 Apply ML to see if we can predict the DASS scores
 
-## Defining DASS Scores
+## Defining Data
+### Defining DASS Scores
 
 DASS: Depression Anxiety Stress Scales
 The DASS-42 is a 42 item self-report scale designed to measure the emotional states of depression, anxiety and stress
@@ -55,7 +57,7 @@ Stress: 1, 6, 8, 11, 12, 14, 18, 22, 27, 29, 32, 33, 35, 39
 
 
 
-## Defining Personality Scores
+### Defining Personality Scores
 
 The Ten Item Personality Inventory is a ten-item test to measure personality traits and characteristics as conceptualized by the five-factor model. 
 Each of the five items was rated on a 7-point scale ranging from 1 (disagree strongly) to 7 (agree strongly).
@@ -75,7 +77,7 @@ Openness to Experiences: 5, 10R\n
 
 Example: A participant scores a 5 on item 1 (Extraverted, enthusiastic) and a 2 on item 6(Reserved, quiet)
 
-## Defining Demographics
+### Defining Demographics
 
 Generic Demographics Survey was also given to participants
 Example of questions include:\n
