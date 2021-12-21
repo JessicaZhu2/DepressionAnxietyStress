@@ -1,9 +1,9 @@
-# DepressionAnxietyStress
-Predicting Depression, Anxiety and Stress
+# Exploratary Data Analysis on Depression Anxiety Stress
+Final Project for Big Data Class at University of Washington
 
 ## Data Introduction
 
-Dataset from Predicting Depression, Anxiety, and Stress from Kaggle (https://www.kaggle.com/yamqwe/depression-anxiety-stress-scales/version/13).
+Dataset from Predicting Depression, Anxiety, and Stress from Kaggle [Link to Kaggle Dataset](https://www.kaggle.com/yamqwe/depression-anxiety-stress-scales/version/13).
 
 Data collected as survey from 2017-2019 to anyone using online-version of Depression Anxiety Stress Scale (DASS). There were 40,000 participants in this 42-question survey and was answered on a 4 point scale to indicate how often the question was applicable to the person in the past week.
 
@@ -32,7 +32,6 @@ Stress: 1, 6, 8, 11, 12, 14, 18, 22, 27, 29, 32, 33, 35, 39
 
 ## Defining Personality Scores
 
-
 The Ten Item Personality Inventory is a ten-item test to measure personality traits and characteristics as conceptualized by the five-factor model. 
 Each of the five items was rated on a 7-point scale ranging from 1 (disagree strongly) to 7 (agree strongly).
 It assesses the 5 personality traits using two question for each trait:
@@ -42,25 +41,23 @@ It assesses the 5 personality traits using two question for each trait:
 4. Emotional Stability  
 5. Openness  
 
-## Defining Personality Scores
-
 Recode the reverse-scored columns (i.e., recode a 7 with a 1, a 6 with a 2, a 5 with a 3, etc.). The reverse scored items are 2, 4, 6, 8, & 10.
-Extraversion: 1, 6R
-Agreeableness: 2R, 7
-Conscientiousness; 3, 8R
-Emotional Stability: 4R, 9
-Openness to Experiences: 5, 10R
+Extraversion: 1, 6R\n
+Agreeableness: 2R, 7\n
+Conscientiousness; 3, 8R\n
+Emotional Stability: 4R, 9\n
+Openness to Experiences: 5, 10R\n
 
 Example: A participant scores a 5 on item 1 (Extraverted, enthusiastic) and a 2 on item 6(Reserved, quiet)
 
 ## Defining Demographics
 
 Generic Demographics Survey was also given to participants
-Example of questions include:
-"How much education have you completed?", 1=Less than high school, 2=High school, 3=University degree, 4=Graduate degree
-"What is your gender?", 1=Male, 2=Female, 3=Other
-"How many years old are you?"
-"What is your sexual orientation?", 1=Heterosexual, 2=Bisexual, 3=Homosexual, 4=Asexual, 5=Other
+Example of questions include:\n
+"How much education have you completed?", 1=Less than high school, 2=High school, 3=University degree, 4=Graduate degree\n
+"What is your gender?", 1=Male, 2=Female, 3=Other\n
+"How many years old are you?"\n
+"What is your sexual orientation?", 1=Heterosexual, 2=Bisexual, 3=Homosexual, 4=Asexual, 5=Other\n
 
 
 ## EDA: DASS Severity Distribution
