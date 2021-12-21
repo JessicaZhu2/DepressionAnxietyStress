@@ -2,4 +2,4 @@
 Predicting Depression, Anxiety and Stress
 
 
-![alt text](./graphs/agegroup_dass.png?raw=true)
+![alt text](./Graphs/agegroup_dass.png?raw=true)
