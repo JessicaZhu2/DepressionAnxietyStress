@@ -1,34 +1,34 @@
 # Exploratary Data Analysis on Depression Anxiety Stress
 Final Project for Big Data Class at University of Washington
+By Jessica Zhu and Victor Cadena
 
-- [Data Introduction](#data-introduction)
-- [Objective of Project](#objective-of-project)
-- [Defining Data](#defining-data)
-  * [Defining DASS Scores](#defining-dass-scores)
-  * [Defining Personality Scores](#defining-personality-scores)
-  * [Defining Demographics](#defining-demographics)
-- [EDA: DASS Severity Distribution](#eda--dass-severity-distribution)
-  * [Distribution of Depression Severity](#distribution-of-depression-severity)
-  * [Distribution of Anxiety Severity](#distribution-of-anxiety-severity)
-  * [Distribution of Stress Severity](#distribution-of-stress-severity)
-- [EDA: DASS Severity and Personality Trait Distribution](#eda--dass-severity-and-personality-trait-distribution)
-  * [Depression Severity and Personality Traits](#depression-severity-and-personality-traits)
-  * [Anxiety Severity and Personality Traits](#anxiety-severity-and-personality-traits)
-  * [Stress Severity and Personality Traits](#stress-severity-and-personality-traits)
-- [EDA: DASS Scores and Demographics](#eda--dass-scores-and-demographics)
-  * [DASS Score by Gender](#dass-score-by-gender)
-  * [DASS Score by Orientation](#dass-score-by-orientation)
-  * [DASS Score by Age Group](#dass-score-by-age-group)
-  * [DASS Score by Race](#dass-score-by-race)
-  * [DASS Score by Married](#dass-score-by-married)
-  * [DASS Score by Education Completed](#dass-score-by-education-completed)
-  * [DASS Score by Religion](#dass-score-by-religion)
+- [Exploratary Data Analysis on Depression Anxiety Stress](#exploratary-data-analysis-on-depression-anxiety-stress)
+  * [Data Introduction](#data-introduction)
+  * [Objective of Project](#objective-of-project)
+  * [Defining Data](#defining-data)
+    + [Defining DASS Scores](#defining-dass-scores)
+    + [Defining Personality Scores](#defining-personality-scores)
+    + [Defining Demographics](#defining-demographics)
+  * [EDA: DASS Severity Distribution](#eda--dass-severity-distribution)
+    + [Distribution of Depression Severity](#distribution-of-depression-severity)
+    + [Distribution of Anxiety Severity](#distribution-of-anxiety-severity)
+    + [Distribution of Stress Severity](#distribution-of-stress-severity)
+  * [EDA: DASS Severity and Personality Trait Distribution](#eda--dass-severity-and-personality-trait-distribution)
+    + [Depression Severity and Personality Traits](#depression-severity-and-personality-traits)
+    + [Anxiety Severity and Personality Traits](#anxiety-severity-and-personality-traits)
+    + [Stress Severity and Personality Traits](#stress-severity-and-personality-traits)
+  * [EDA: DASS Scores and Demographics](#eda--dass-scores-and-demographics)
+    + [DASS Score by Gender](#dass-score-by-gender)
+    + [DASS Score by Orientation](#dass-score-by-orientation)
+    + [DASS Score by Age Group](#dass-score-by-age-group)
+    + [DASS Score by Race](#dass-score-by-race)
+    + [DASS Score by Married](#dass-score-by-married)
+    + [DASS Score by Education Completed](#dass-score-by-education-completed)
+    + [Predicting the Scores without the entire survey](#predicting-the-scores-without-the-entire-survey)
+  * [Feature Importance](#feature-importance)
+  * [Results](#results)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 ## Data Introduction
 
