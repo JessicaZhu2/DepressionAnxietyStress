@@ -40,11 +40,11 @@ Other surveys were also given to the participants to gather background data on t
 
 ## Objective of Project
 
-To get enriching information about the DASS (Depression Anxiety Stress Scales) to find better relationships between variables and make better sense of the results.
+* To get enriching information about the DASS (Depression Anxiety Stress Scales) to find better relationships between variables and make better sense of the results.
 
-Exploration of the data to see if there are any particular personality trait or demographic variable that has a correlation with DASS scores
+* Exploration of the data to see if there are any particular personality trait or demographic variable that has a correlation with DASS scores
 
-Apply ML to see if we can predict the DASS scores
+* Apply ML to see if we can predict the DASS scores
 
 ## Defining Data
 ### Defining DASS Scores
@@ -54,9 +54,9 @@ The DASS-42 is a 42 item self-report scale designed to measure the emotional sta
 The essential function of the DASS is to assess the severity of the core symptoms of Depression, Anxiety and Stress. High scores on the DASS would certainly alert the clinician to a high level of distress in the patient and this would need to be explored further within the interview process
 
 Each of the 42 questions is scored on a 4-point scale ranging from 0 (“Did not apply to me at all”) to 3 (“Applied to me very much, or most of the time”). Scores for Depression, Anxiety and Stress are calculated by summing the scores for the relevant items:
- Depression: 3, 5, 10, 13, 16, 17, 21, 24, 26, 31, 34, 37, 38, 42 
-Anxiety: 2, 4, 7, 9, 15, 19, 20, 23, 25, 28, 30, 36, 40, 41 
-Stress: 1, 6, 8, 11, 12, 14, 18, 22, 27, 29, 32, 33, 35, 39
+**Depression**: 3, 5, 10, 13, 16, 17, 21, 24, 26, 31, 34, 37, 38, 42 
+**Anxiety**: 2, 4, 7, 9, 15, 19, 20, 23, 25, 28, 30, 36, 40, 41 
+**Stress**: 1, 6, 8, 11, 12, 14, 18, 22, 27, 29, 32, 33, 35, 39
 
 
 
@@ -72,22 +72,22 @@ It assesses the 5 personality traits using two question for each trait:
 5. Openness  
 
 Recode the reverse-scored columns (i.e., recode a 7 with a 1, a 6 with a 2, a 5 with a 3, etc.). The reverse scored items are 2, 4, 6, 8, & 10.
-Extraversion: 1, 6R\n
-Agreeableness: 2R, 7\n
-Conscientiousness; 3, 8R\n
-Emotional Stability: 4R, 9\n
-Openness to Experiences: 5, 10R\n
+Extraversion: 1, 6R  
+Agreeableness: 2R, 7  
+Conscientiousness; 3, 8R  
+Emotional Stability: 4R, 9  
+Openness to Experiences: 5, 10R  
 
-Example: A participant scores a 5 on item 1 (Extraverted, enthusiastic) and a 2 on item 6(Reserved, quiet)
+Example: A participant scores a 5 on item 1 (Extraverted, enthusiastic) and a 2 on item 6( Reserved, quiet)
 
 ### Defining Demographics
 
 Generic Demographics Survey was also given to participants
-Example of questions include:\n
-"How much education have you completed?", 1=Less than high school, 2=High school, 3=University degree, 4=Graduate degree\n
-"What is your gender?", 1=Male, 2=Female, 3=Other\n
-"How many years old are you?"\n
-"What is your sexual orientation?", 1=Heterosexual, 2=Bisexual, 3=Homosexual, 4=Asexual, 5=Other\n
+Example of questions include:  
+"How much education have you completed?", 1=Less than high school, 2=High school, 3=University degree, 4=Graduate degree  
+"What is your gender?", 1=Male, 2=Female, 3=Other  
+"How many years old are you?"  
+"What is your sexual orientation?", 1=Heterosexual, 2=Bisexual, 3=Homosexual, 4=Asexual, 5=Other  
 
 
 ## EDA: DASS Severity Distribution
@@ -151,8 +151,8 @@ Again, Emotional Stability score goes down the fastest the more stressed you are
 
 ![Alt text](./Graphs/gender_dass.png?raw=true "Title")
 
-Male has the lowest DASS Scores
-Other gender category has the highest DASS scores
+Male has the lowest DASS Scores  
+Other gender category has the highest DASS scores  
 
 
 ### DASS Score by Orientation
@@ -160,47 +160,59 @@ Other gender category has the highest DASS scores
 ![Alt text](./Graphs/orientation_dass.png?raw=true "Title")
 
 Heterosexual have the lowest DASS scores
-Bisexual orientation group has the highest DASS scores. Hetersexual orientation group is the lowest and all the other sexual orientation group are also relatively higher compared to hetersexual.
+Bisexual orientation group has the highest DASS scores.  
+Hetersexual orientation group is the lowest and all the other sexual orientation group are also relatively higher compared to hetersexual.  
 
 ### DASS Score by Age Group
 
 ![Alt text](./Graphs/agegroup_dass.png?raw=true "Title")
 
-There seems to be a trend with the DASS scores for the age group. The older the age groups, the lower the DASS scores are
-
-We can see that the below 18 age group has the highest DASS scores compared to the older age group of 35 and above having the lowest score
+There seems to be a trend with the DASS scores for the age group. The older the age groups, the lower the DASS scores are.  
+We can see that the below 18 age group (people who haven't graduated high school) has the highest DASS scores compared to the older age group of 35 and above having the lowest score.  
 
 
 ### DASS Score by Race
 
 ![Alt text](./Graphs/race_dass.png?raw=true "Title")
 
-Some race also have lower Dass scores average such as Black, Asian, and white
+Some race also have lower Dass scores average such as Black, Asian, and white.  
 
-Other race like Native American and Arab have the higher DASS score average
+Other race like Native American and Arab have the higher DASS score average.  
 
 ### DASS Score by Married
 
 ![Alt text](./Graphs/married_dass.png?raw=true "Title")
-This graph shows that never married people have the highest DASS score average, whereas currently married people have the lowest DASS score
+This graph shows that never married people have the highest DASS score average, whereas currently married people have the lowest DASS score.  
 
-But the DAS increases if something happened, and they are no longer together
+But the DAS increases if something happened, and they are no longer together.  
 
 
 ### DASS Score by Education Completed
 
 ![Alt text](./Graphs/education_dass_scores.png?raw=true "Title")
-This graph shows that the higher the education you have, the lower your DASS score are.
+This graph shows that the higher the education you have, the lower your DASS score are.  
 
-However, there seems to be a cap after completing university (undergraduate) degree.
-This is interesting because generally acknowledged that the more highly educated someone is, the more money they make.
-There have been past studies that have found that happiness plateaus once a person earns $75,000 per year. 
+However, there seems to be a cap after completing university (undergraduate) degree.  
+This is interesting because generally acknowledged that the more highly educated someone is, the more money they make.  
+There have been past studies that have found that happiness plateaus once a person earns $75,000 per year.   
 
 
-### DASS Score by Religion
+### Predicting the Scores without the entire survey
 
-![Alt text](./Graphs/religion_dass.png?raw=true "Title")
+![Alt text](./Graphs/predict_scores.png?raw=true "Title")
 
-Some religion have high Dass scores average such as Christian (Morman) 
+## Feature Importance
+```
+(0,Q1A), (1,Q2A), (2,Q3A), (4,source), (5,introelapse), (6,testelapse), (7,surveyelapse), (8,Agreeableness), (9,Conscientiousness), (10,Emotional_Stability), (11,Extraversion), (12,Openness_to_Experiences), (13,education), (14,urban), (15,gender)
+```
 
-Other religion like Buddhist and Christian (Protestant) have the lowest DASS scores
+**Explaining the model features**
+Source: How the user found the test, 1=from the front page of the site hosting the survey, 2=from google, 0=other or unknown  
+Introelapse: The time spent on the introduction/landing page (in seconds)  
+Testelapse: The time spent on all the DASS questions (should be equivalent to the time elapsed on all the indiviudal questions combined)  
+Surveyelapse: The time spent answering the rest of the demographic and survey questions  
+
+## Results
+![Alt text](./Graphs/baseline_perf.png?raw=true "Title")
+
+The average Error in the score only making 3 questions of the 42 and having the demographic and personality variables at hand is 5.57. Meaning, the prediction error in severity for stress is at most 1 category!
