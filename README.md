@@ -24,9 +24,10 @@ By Jessica Zhu and Victor Cadena
     + [DASS Score by Race](#dass-score-by-race)
     + [DASS Score by Married](#dass-score-by-married)
     + [DASS Score by Education Completed](#dass-score-by-education-completed)
+  * [ML Model](#ml-model)
     + [Predicting the Scores without the entire survey](#predicting-the-scores-without-the-entire-survey)
-  * [Feature Importance](#feature-importance)
-  * [Results](#results)
+    + [Feature Importance](#feature-importance)
+    + [Results](#results)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -196,12 +197,13 @@ However, there seems to be a cap after completing university (undergraduate) deg
 This is interesting because generally acknowledged that the more highly educated someone is, the more money they make.  
 There have been past studies that have found that happiness plateaus once a person earns $75,000 per year.   
 
+## ML Model
 
 ### Predicting the Scores without the entire survey
 
 ![Alt text](./Graphs/predict_scores.png?raw=true "Title")
 
-## Feature Importance
+### Feature Importance
 ```
 (0,Q1A), (1,Q2A), (2,Q3A), (4,source), (5,introelapse), (6,testelapse), (7,surveyelapse), (8,Agreeableness), (9,Conscientiousness), (10,Emotional_Stability), (11,Extraversion), (12,Openness_to_Experiences), (13,education), (14,urban), (15,gender)
 ```
@@ -212,7 +214,7 @@ Introelapse: The time spent on the introduction/landing page (in seconds)
 Testelapse: The time spent on all the DASS questions (should be equivalent to the time elapsed on all the indiviudal questions combined)  
 Surveyelapse: The time spent answering the rest of the demographic and survey questions  
 
-## Results
+### Results
 ![Alt text](./Graphs/baseline_perf.png?raw=true "Title")
 
 The average Error in the score only making 3 questions of the 42 and having the demographic and personality variables at hand is 5.57. Meaning, the prediction error in severity for stress is at most 1 category!
