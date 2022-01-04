@@ -183,6 +183,7 @@ Other race like Native American and Arab have the higher DASS score average.
 ### DASS Score by Married
 
 ![Alt text](./Graphs/married_dass.png?raw=true "Title")
+
 This graph shows that never married people have the highest DASS score average, whereas currently married people have the lowest DASS score.  
 
 But the DAS increases if something happened, and they are no longer together.  
